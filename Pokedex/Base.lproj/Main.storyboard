@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pokemon.ttf">
+            <string>PokemonSolidNormal</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -24,8 +29,31 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kyq-eo-ybb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5t-VQ-M3E">
+                                        <rect key="frame" x="147.5" y="20" width="80" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="21"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6z-1z-yjb">
+                                        <rect key="frame" x="345" y="24" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="90w-tL-gx9"/>
+                                            <constraint firstAttribute="height" constant="22" id="Maf-B1-kpm"/>
+                                        </constraints>
+                                        <state key="normal" image="music"/>
+                                        <connections>
+                                            <action selector="musicBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q7G-of-K7B"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="u6z-1z-yjb" secondAttribute="bottom" constant="8" id="74F-3v-9Hb"/>
+                                    <constraint firstItem="l5t-VQ-M3E" firstAttribute="centerY" secondItem="Kyq-eo-ybb" secondAttribute="centerY" constant="7.75" id="Aah-EE-rpl"/>
+                                    <constraint firstItem="l5t-VQ-M3E" firstAttribute="centerX" secondItem="Kyq-eo-ybb" secondAttribute="centerX" id="IUk-sf-psr"/>
+                                    <constraint firstAttribute="trailing" secondItem="u6z-1z-yjb" secondAttribute="trailing" constant="8" id="OQN-7C-RWN"/>
                                     <constraint firstAttribute="height" constant="54" id="u5v-qk-f4u"/>
                                 </constraints>
                             </view>
@@ -107,6 +135,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="VhE-zp-VgO" id="n44-6U-o0L"/>
+                        <outlet property="searchBar" destination="Rh8-YQ-Oed" id="m0O-m9-yr6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -117,5 +146,6 @@
     <resources>
         <image name="-pokedex bg" width="1920" height="1200"/>
         <image name="1" width="120" height="120"/>
+        <image name="music" width="100" height="100"/>
     </resources>
 </document>
