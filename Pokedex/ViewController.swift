@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SwiftSpinner
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
@@ -36,7 +37,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
         parsePokemonCSV()
-        initAudio()
+//        initAudio()
     }
     
     func initAudio(){
@@ -59,7 +60,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         do{
             let csv = try CSV(contentsOfURL: path!)
             let rows = csv.rows
-            print(rows)
+//            print(rows)
             
             for row in rows{
                 let pokeId = Int(row["id"]!)!
@@ -96,6 +97,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }else{
             poke = pokemon[indexPath.row]
         }
+        SwiftSpinner.show("Waking up \(poke.name)")
         performSegue(withIdentifier: "PokeDetailVC", sender: poke)
     }
 
@@ -124,7 +126,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             collection.reloadData()
             view.endEditing(true)
         }else {
-            print("hello")
+//            print("hello")
             inSearchMode = true
             let lower = searchBar.text?.lowercased()
             //$0 place holder
